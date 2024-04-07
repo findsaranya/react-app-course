@@ -1,0 +1,23 @@
+{
+  "name": "react-namaste-app",
+  "version": "1.0.0",
+  "description": "First React APP",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/findsaranya/react-app-course.git"
+  },
+  "keywords": [
+    "react",
+    "react-dom"
+  ],
+  "author": "Saranya Govindaraj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/findsaranya/react-app-course/issues"
+  },
+  "homepage": "https://github.com/findsaranya/react-app-course#readme"
+}
