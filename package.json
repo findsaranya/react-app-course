@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/findsaranya/react-app-course/issues"
   },
-  "homepage": "https://github.com/findsaranya/react-app-course#readme"
+  "homepage": "https://github.com/findsaranya/react-app-course#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
 }
