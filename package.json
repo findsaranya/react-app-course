@@ -2,7 +2,6 @@
   "name": "react-namaste-app",
   "version": "1.0.0",
   "description": "First React APP",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
