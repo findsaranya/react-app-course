@@ -1,31 +1,12 @@
  import  React  from "react";
  import  ReactDOM  from "react-dom/client";
-//const React = require("react");
-//const ReactDOM = require("react-dom");
-const heading = React.createElement("h1", { id: "heading" }, "Hello World!! 🚀 ");
 
-console.log(heading);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-console.log(root);
+ //React.createElement => Object => when rendering on the dom it's converted into HTML Element
 
-root.render(heading);
+ const heading = React.createElement("h1",{id:'heading'},"Hello React 🚀 ");
+ const h1 = <h1 id="title">JSX hello 🌹 </h1>;
+ console.log(h1);
+ console.log(heading);
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "child", key: "child" }, [
-    React.createElement(
-      "h1",
-      { id: "sibling", key: "sibling1" },
-      "Hello Child!! 🧒 "
-    ),
-    React.createElement(
-      "div",
-      { id: "sibling", key: "sibling2" },
-      "I am sibling 🌹 "
-    ),
-  ])
-);
-
-console.log(parent);
-root.render(parent);
+ const root = ReactDOM.createRoot(document.getElementById('root'));
+ root.render(h1);
