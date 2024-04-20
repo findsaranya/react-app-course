@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "First React APP",
   "scripts": {
-    "start":"parcel index.html",
-    "build" : "parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
-    
   },
   "repository": {
     "type": "git",
@@ -30,7 +29,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browerslist" : [
+  "browerslist": [
     "last 2 versions"
   ]
 }
