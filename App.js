@@ -10,12 +10,17 @@ const heading = React.createElement(
 );
 
 const Title = () => <h1>Title component 🎫 </h1>;
+
+const span = <span>Small 🛩 </span>;
 const HeadingComponent = () => (
   <div id="container">
     <h1 id="title" className="title">
-      JSX hello 🌹{" "}
+      JSX hello 🌹{span}
     </h1>
     <Title />
+    {Title()}
+    {<Title />}
+    <Title></Title>
   </div>
 );
 
