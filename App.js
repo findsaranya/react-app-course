@@ -1,31 +1,54 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-//React.createElement => Object => when rendering on the dom it's converted into HTML Element
-
-const heading = React.createElement(
-  "h1",
-  { id: "heading", className: "title" },
-  "Hello React 🚀 "
-);
-
-const Title = () => <h1>Title component 🎫 </h1>;
-
-const span = <span>Small 🛩 </span>;
-const HeadingComponent = () => (
-  <div id="container">
-    <h1 id="title" className="title">
-      JSX hello 🌹{span}
-    </h1>
-    <Title />
-    {Title()}
-    {<Title />}
-    <Title></Title>
+const resStyle = {
+  backgroundColor: "pink",
+};
+const Header = () => (
+  <div className="header">
+    <div className="logo-container">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ychB0gzKUiciTunIPeII_aIoptW3k81YQpa0wryEFA&s"
+        className="logo"
+      />
+    </div>
+    <div className="nav-items">
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Cart</li>
+      </ul>
+    </div>
   </div>
 );
 
-console.log(<HeadingComponent />);
-console.log(heading);
+const Body = () => (
+  <div className="body">
+    <div className="search">SearchBar</div>
+    <div className="res-container">
+      <RestaurantCard />
+    </div>
+  </div>
+);
 
+const RestaurantCard = () => (
+  <div className="res-card" style={resStyle}>
+    <img
+      src="https://shireenanwer.com/wp-content/uploads/2023/02/Untitled-design-98.png"
+      alt="res-logo"
+    />
+    <h3>KFC</h3>
+    <h4>South Indian</h4>
+    <h4>4.4 stars</h4>
+    <h4>34 min</h4>
+  </div>
+);
+
+const AppLayout = () => (
+  <div className="app-layout">
+    <Header />
+    <Body />
+  </div>
+);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeadingComponent />);
+root.render(<AppLayout />);
