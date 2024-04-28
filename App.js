@@ -32,16 +32,15 @@ const Body = () => (
   </div>
 );
 
-const RestaurantCard = (props) => {
-  console.log(props);
+const RestaurantCard = ({ restName, cuisine }) => {
   return (
     <div className="res-card" style={resStyle}>
       <img
         src="https://shireenanwer.com/wp-content/uploads/2023/02/Untitled-design-98.png"
         alt="res-logo"
       />
-      <h3>{props.restName}</h3>
-      <h4>{props.cuisine}</h4>
+      <h3>{restName}</h3>
+      <h4>{cuisine}</h4>
       <h4>4.4 stars</h4>
       <h4>34 min</h4>
     </div>
