@@ -1,5 +1,4 @@
-import React, { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
+import RestuarantCard from "./RestuarantCard";
 
 const data = {
   statusCode: 0,
@@ -1343,28 +1342,8 @@ const data = {
 };
 const { data: cardData } = data;
 const { cards } = cardData;
-const resStyle = {
-  backgroundColor: "pink",
-};
-const Header = () => (
-  <div className="header">
-    <div className="logo-container">
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ychB0gzKUiciTunIPeII_aIoptW3k81YQpa0wryEFA&s"
-        className="logo"
-      />
-    </div>
-    <div className="nav-items">
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Cart</li>
-      </ul>
-    </div>
-  </div>
-);
 
-const Body = () => {
+export default Body = () => {
   let cardsList = cards.map((eachCard) => (
     <RestaurantCard
       restData={eachCard.card.card.info}
@@ -1374,99 +1353,7 @@ const Body = () => {
   return (
     <div className="body">
       <div className="search">SearchBar</div>
-      <div className="res-container">
-        {cardsList}
-        {/* <RestaurantCard restData={cards[0].card.card.info} />
-        <RestaurantCard restData={cards[1].card.card.info} /> */}
-      </div>
+      <div className="res-container">{cardsList}</div>
     </div>
   );
 };
-const restData = {
-  id: "582150",
-  name: "Chinese Wok",
-  cloudinaryImageId: "e0839ff574213e6f35b3899ebf1fc597",
-  locality: "Avinashi Road",
-  areaName: "Peelamedu",
-  costForTwo: "₹250 for two",
-  cuisines: ["Chinese", "Asian", "Tibetan", "Desserts"],
-  avgRating: 4.1,
-  parentId: "61955",
-  avgRatingString: "4.1",
-  totalRatingsString: "1K+",
-  sla: {
-    deliveryTime: 29,
-    lastMileTravel: 3.9,
-    serviceability: "SERVICEABLE",
-    slaString: "25-30 mins",
-    lastMileTravelString: "3.9 km",
-    iconType: "ICON_TYPE_EMPTY",
-  },
-  availability: {
-    nextCloseTime: "2024-04-29 02:00:00",
-    opened: true,
-  },
-  badges: {},
-  isOpen: true,
-  type: "F",
-  badgesV2: {
-    entityBadges: {
-      imageBased: {},
-      textBased: {},
-      textExtendedBadges: {},
-    },
-  },
-  aggregatedDiscountInfoV3: {
-    header: "ITEMS",
-    subHeader: "AT ₹169",
-  },
-  orderabilityCommunication: {
-    title: {},
-    subTitle: {},
-    message: {},
-    customIcon: {},
-  },
-  differentiatedUi: {
-    displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-    differentiatedUiMediaDetails: {
-      mediaType: "ADS_MEDIA_ENUM_IMAGE",
-      lottie: {},
-      video: {},
-    },
-  },
-  reviewsSummary: {},
-  displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-  restaurantOfferPresentationInfo: {},
-};
-
-const RestaurantCard = ({ restData }) => {
-  const { cloudinaryImageId, name, cuisines, avgRating, sla, costForTwo } =
-    restData;
-  const { deliveryTime } = sla;
-  return (
-    <div className="res-card" style={resStyle}>
-      <img
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
-        alt="res-logo"
-      />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{deliveryTime + " mins"}</h4>
-      <h4>{costForTwo}</h4>
-    </div>
-  );
-};
-
-const AppLayout = () => (
-  <div className="app-layout">
-    <Header />
-    <Body />
-  </div>
-);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  // <StrictMode>
-  <AppLayout />
-  //</StrictMode>
-);
