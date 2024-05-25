@@ -46,24 +46,31 @@ const restaurantList = [
   },
 ];
 
+// () => {
+//
+//   // console.log(restaurantList);
+// }
 export const Body = () => {
-  const [listOfRestaurant, setFilterRest] = useState([...restaurantList]);
+  const handleFilter = (e) => {
+    console.log(e.target);
+    const restaurantList = listOfRestaurant.filter(
+      (res) => res.card.card.info.avgRating > 4.5
+    );
+    setFilterRest([...restaurantList]);
+  };
+
+  const [listOfRestaurant, setFilterRest] = useState([...cards]);
   let cardsList = listOfRestaurant.map((eachCard) => (
-    <RestaurantCard restData={eachCard.info} key={eachCard.info.id} />
+    <RestaurantCard
+      restData={eachCard.card.card.info}
+      key={eachCard.card.card.info.id}
+    />
   ));
   return (
     <div className="body">
       <div className="search">SearchBar</div>
       <div className="filter">
-        <button
-          onClick={() => {
-            const restaurantList = listOfRestaurant.filter(
-              (res) => res.info.avgRating >= 4
-            );
-            setFilterRest([...restaurantList]);
-            // console.log(restaurantList);
-          }}
-        >
+        <button onClick={(event) => handleFilter(event)}>
           click top rated🍓
         </button>
       </div>
