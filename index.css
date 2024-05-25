@@ -61,6 +61,11 @@
   object-fit: cover;
 }
 
-.search {
+.search,
+.filter {
   margin: 10px;
+}
+
+.filter > button {
+  cursor: pointer;
 }
