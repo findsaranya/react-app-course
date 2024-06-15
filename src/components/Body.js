@@ -1,6 +1,6 @@
 import RestuarantCard from "./RestuarantCard";
 import { data } from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const { data: cardData } = data;
 const { cards } = cardData;
@@ -51,24 +51,63 @@ const restaurantList = [
 //   // console.log(restaurantList);
 // }
 export const Body = () => {
+  console.log("body");
+  useEffect(() => {
+    console.log("effect gets called");
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.01420&lng=76.99410&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const result = await data.json();
+    // console.log(
+    //   result,
+    //   result.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+    // );
+    setFilterRest(
+      result.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants || []
+    );
+  };
   const handleFilter = (e) => {
-    console.log(e.target);
+    console.log(e.target, listOfRestaurant);
+
     const restaurantList = listOfRestaurant.filter(
-      (res) => res.card.card.info.avgRating > 4.5
+      (res) => res.info.avgRating > 4.2
     );
     setFilterRest([...restaurantList]);
   };
 
-  const [listOfRestaurant, setFilterRest] = useState([...cards]);
+  const handleSearch = (e) => {
+    const searchString = e.target.value;
+    if (searchString) {
+      const searchRests = listOfRestaurant.filter((item) =>
+        item.card.card.info.name.toLowerCase().includes(e.target.value)
+      );
+      setFilterRest([...searchRests]);
+    } else {
+      setFilterRest([...cards]);
+    }
+  };
+  const [listOfRestaurant, setFilterRest] = useState([]);
+  const [searchItem, setSearchItem] = useState(null);
   let cardsList = listOfRestaurant.map((eachCard) => (
-    <RestaurantCard
-      restData={eachCard.card.card.info}
-      key={eachCard.card.card.info.id}
-    />
+    <RestaurantCard restData={eachCard.info} key={eachCard.info.id} />
   ));
+  if (listOfRestaurant.length === 0) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <div className="body">
-      <div className="search">SearchBar</div>
+      <div className="search">
+        <input
+          name="search"
+          type="text"
+          onChange={(event) => handleSearch(event)}
+        />
+      </div>
       <div className="filter">
         <button onClick={(event) => handleFilter(event)}>
           click top rated🍓
