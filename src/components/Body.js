@@ -1,6 +1,7 @@
 import RestuarantCard from "./RestuarantCard";
 import { data } from "../utils/mockData";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const { data: cardData } = data;
 const { cards } = cardData;
@@ -96,8 +97,9 @@ export const Body = () => {
   let cardsList = listOfRestaurant.map((eachCard) => (
     <RestaurantCard restData={eachCard.info} key={eachCard.info.id} />
   ));
+  //conditional rendering
   if (listOfRestaurant.length === 0) {
-    return <h1>Loading...</h1>;
+    return <Shimmer />;
   }
   return (
     <div className="body">
