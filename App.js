@@ -17,12 +17,12 @@ const parent = React.createElement(
     React.createElement(
       "h1",
       { id: "sibling", key: "sibling1" },
-      "Hello Child!! 🧒 "
+      "Hello Child Tanees!! 🧒 "
     ),
     React.createElement(
       "div",
       { id: "sibling", key: "sibling2" },
-      "I am sibling 🌹 "
+      "I am sibling 🌹"
     ),
   ])
 );
