@@ -8,7 +8,7 @@ const heading = React.createElement(
   { id: "heading", className: "title" },
   "Hello React 🚀 "
 );
-
+  console.log(heading);
 const Title = () => <h1>Title component 🎫 </h1>;
 
 const span = <span>Small 🛩 </span>;
@@ -23,7 +23,8 @@ const HeadingComponent = () => (
     <Title></Title>
   </div>
 );
-
+console.log(span);
+console.log(Title);
 console.log(<HeadingComponent />);
 console.log(heading);
 
